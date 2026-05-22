@@ -15,6 +15,8 @@ setopt autocd beep
 bindkey '^R' history-incremental-search-backward
 # End of lines configured by zsh-newuser-install
 
+fastfetch
+
 export LIBVA_DRIVER_NAME=radeonsi
 export XDG_MENU_PREFIX=arch-
 
