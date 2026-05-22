@@ -1,0 +1,331 @@
+/*Arutoria colour definitions*/
+
+@define-color base #425156;
+@define-color textdark #94ae9e;
+@define-color text #bbe3cf;
+@define-color textlight #e1fff4;
+@define-color darker9 #000C13;
+@define-color darker8 #05151A;
+@define-color darker7 #0D1C20;
+@define-color darker6 #152327;
+@define-color darker5 #1c2a2d;
+@define-color darker4 #223134;
+@define-color darker3 #29373b;
+@define-color darker2 #35444a;
+@define-color darker1 #3e4c52;
+@define-color lighter1 #445559;
+@define-color lighter2 #4d5d62;
+@define-color lighter3 #556569;
+@define-color lighter4 #5c6d71;
+@define-color lighter5 #647479;
+@define-color altdarker2 #383b47;
+@define-color altdarker1 #3f434f;
+@define-color altlighter1 #474b57;
+@define-color altlighter2 #4f525f;
+@define-color altlighter3 #585a67;
+@define-color altlighter4 #5f626f;
+@define-color altlighter5 #686976;
+@define-color seafoamlight #92e5bd;
+@define-color seafoammed #6dc79e;
+@define-color seafoamdark #66917b;
+@define-color cyanlight #85bddc;
+@define-color cyanmed #5c9ebd;
+@define-color cyandark #596d77;
+@define-color lavenderlight #8478d4;
+@define-color lavendermed #6352b7;
+@define-color lavenderdark #54468f;
+@define-color fuchsialight #c774d0;
+@define-color fuchsiamed #b44ebc;
+@define-color fuchsiadark #834388;
+@define-color magentalight #d87bb6;
+@define-color magentamed #c65aa1;
+@define-color magentadark #8d5177;
+@define-color maroonlight #df8692;
+@define-color maroonmed #cc6977;
+@define-color maroondark #91525a;
+@define-color saffronlight #e8cc93;
+@define-color saffronmed #caad6d;
+@define-color saffrondark #918363;
+@define-color khakilight #dde894;
+@define-color khakimed #bfca6f;
+@define-color khakidark #959965;
+@define-color limelight #b8e894;
+@define-color limemed #97ca6f;
+@define-color limedark #7a9760;
+
+* {
+	/* `otf-font-awesome` is required to be installed for icons */
+	font-family: 'Hurmit Nerd Font Propo', sans-serif;
+	font-size: 14px;
+}
+
+window#waybar {
+	/*background-color: rgba(43, 48, 59, 0.5);*/
+	background-color: #060d16;
+	/*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
+	color: #4d6cff;
+	transition-property: background-color;
+	transition-duration: .5s;
+}
+
+window#waybar>box {
+	padding: 2px 5px 0 5px;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+background-color: transparent;
+}
+window#waybar.solo {
+background-color: #FFFFFF;
+}
+ */
+
+window#waybar.termite {
+	background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+	background-color: #000000;
+	border: none;
+}
+
+button {
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+	background: inherit;
+}
+
+/* you can set a style on hover for any module like this */
+#pulseaudio:hover {
+	background-color: #a37800;
+}
+
+#workspaces button {
+	margin: 0 2px;
+	padding: 5px 3px 3px;
+	background-color: transparent;
+	border: none;
+	border-bottom: 2px solid #c444ff;
+	color: #c444ff;
+	border-radius: 0;
+}
+
+#workspaces button:hover {
+	background-color: #c444ff;
+	color: #060d16;
+	border-color: #7b01a2;
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+
+#workspaces button.active {
+	background-color: #9200ce;
+	color: #060d16;
+	border-color: #7b01a2;
+}
+
+#workspaces button.urgent {
+	background-color: @maroonlight;
+}
+
+#mode {
+	background-color: #64727D;
+	box-shadow: inset 0 -3px #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+	margin: 0 1px;
+	padding: 5px 5px 3px;
+	border-bottom: 2px solid #0000ff;
+}
+
+#window,
+#workspaces {
+	margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+	margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+	margin-right: 0;
+}
+
+#clock {
+	color: #00af95;
+	border-color: #48e6af;
+}
+
+@keyframes blink {
+	to {
+		background-color: @maroonmed;
+		color: @darker5;
+	}
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+	border-color: @maroonlight;
+	color: @maroonlight;
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: steps(12);
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#power-profiles-daemon {
+}
+
+#power-profiles-daemon.performance {
+	border-color: @maroonlight;
+	color: @maroonlight;
+}
+
+#power-profiles-daemon.balanced {
+	border-color: @cyanlight;
+	color: @cyanlight;
+
+}
+
+#power-profiles-daemon.power-saver {
+	border-color: @limelight;
+	color: @limelight;
+}
+
+label:focus {
+	background-color: #000000;
+}
+
+#cpu {
+}
+
+#memory {
+}
+
+#disk {
+}
+
+#backlight {
+}
+
+#network {
+}
+
+#network.disconnected {
+	background-color: @maroondark;
+}
+
+#wireplumber {
+}
+
+#wireplumber.muted {
+	background-color: @red;
+}
+
+#custom-media {
+	background-color: #66cc99;
+	color: #2a5c45;
+	min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+	background-color: #66cc99;
+}
+
+#custom-media.custom-vlc {
+	background-color: #ffa000;
+}
+
+#temperature {
+}
+
+#temperature.critical {
+	background-color: @maroonmed;
+}
+
+#tray {
+}
+
+#tray > .passive {
+	-gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+	-gtk-icon-effect: highlight;
+	background-color: #eb4d4b;
+}
+
+
+#language {
+	background: #00b093;
+	color: #740864;
+	padding: 0 5px;
+	margin: 0 5px;
+	min-width: 16px;
+}
+
+#keyboard-state {
+	background: #97e1ad;
+	color: #000000;
+	padding: 0 0px;
+	margin: 0 5px;
+	min-width: 16px;
+}
+
+#keyboard-state > label {
+	padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+	background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+	background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
+
+#privacy {
+	padding: 0;
+}
+
+#privacy-item {
+	padding: 0 5px;
+	color: white;
+}
+
+#custom-archlogo {
+	font-size: 20px;
+	padding: 0;
+	margin: 0 2px 0 7px;
+}
