@@ -56,4 +56,35 @@ local fileManager	= "dolphin"
 local menu		= "fuzzel"
 --local screenshot	= "hyprshot"
 
+local bar		= "waybar"
+local background	= "hyprpaper"
 
+-- |||||||||||||||
+-- || Autostart ||
+-- |||||||||||||||
+
+
+hl.on("hyprland.start", function ()
+	hl.exec_cmd(bar & background)
+	hl.exec_cmd("openrgb --startminimized")
+)
+
+-- |||||||||||||||||||||||||||
+-- || Environment variables ||
+-- |||||||||||||||||||||||||||
+
+-- || Cursor size ||
+hl.env("XCURSOR_SIZE", 24)
+hl.env("HYPRCURSOR_SIZE", 24)
+
+-- || Qt variables ||
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+
+-- || XDG variables ||
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("XDG_SESSION_TYPE", "wayland")
+hl.env("XDG_SESSION_DESKTOP", "Hyprland")
+
+-- || Fix Dolphin / KDE file associations ||
+hl.env("XDG_MENU_PREFIX", "arch-")
+hl.exec_cmd("dbus-update-activation-environment --systemd XDG_MENU_PREFIX")
