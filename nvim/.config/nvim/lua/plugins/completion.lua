@@ -41,5 +41,9 @@ return {
 			-- See the fuzzy documentation for more information
 			fuzzy = { implementation = "rust" }
 		},
+	},
+	{
+		'nvim-mini/mini.pairs',
+		version = false
 	}
 }
