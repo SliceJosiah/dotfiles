@@ -1,2 +1,5 @@
+# Hypr
+hypr/.config/hypr/local/*
+
 # Neovim
 nvim/**/lazy-lock.json

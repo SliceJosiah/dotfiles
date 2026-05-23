@@ -38,7 +38,22 @@ local ninex = {
 	DarkPink = "#B912AF",
 	LightPink = "#E600FE",
 	DarkRed = "#BD1B26",
-	LightRed = "#F7144C"
-},
+	LightRed = "#F7144C",
+}
+
+-- ||||||||||||||||||||
+-- || Monitor config ||
+-- ||||||||||||||||||||
+
+require(local/hyprland-monitor)
+
+-- |||||||||||||||||
+-- || My programs ||
+-- |||||||||||||||||
+
+local terminal		= "kitty"
+local fileManager	= "dolphin"
+local menu		= "fuzzel"
+--local screenshot	= "hyprshot"
 
 
